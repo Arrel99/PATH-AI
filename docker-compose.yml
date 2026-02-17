@@ -20,7 +20,7 @@ services:
     container_name: ngrok
     restart: unless-stopped
     environment:
-      - NGROK_AUTHTOKEN2rFM0dDQfjIqkYeuDpyVm0wTUI2_4mP6jSjwjUpYpHTu6bfAQ
+      - NGROK_AUTHTOKEN=2rFM0dDQfjIqkYeuDpyVm0wTUI2_4mP6jSjwjUpYpHTu6bfAQ
     command: http path-ai:8000
     ports:
       - "4040:4040"
