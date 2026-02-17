@@ -25,7 +25,7 @@ app.include_router(ai_router)
 async def root():
     return {
         "name": "PATH AI",
-        "version": "2.5.0",
+        "version": "1.0",
         "status": "running",
         "docs": "/docs",
     }
