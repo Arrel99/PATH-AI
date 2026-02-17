@@ -1,0 +1,38 @@
+# Version control
+.git
+.gitignore
+
+# Python artifacts
+__pycache__
+*.py[cod]
+*.egg-info
+dist
+build
+*.egg
+
+# Virtual environments
+.venv
+venv
+env
+ENV
+
+# Environment secrets
+.env
+
+# IDE / editor
+.vscode
+.idea
+*.swp
+*.swo
+
+# Docker (avoid recursive copy)
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Misc
+*.md
+LICENSE
+.pytest_cache
+.mypy_cache
+.ruff_cache
