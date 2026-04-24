@@ -29,15 +29,20 @@ async def main():
 
         context.record_message(user_input)
 
-        result = await tutor_chat(
-            llm=llm,
-            student_message=user_input,
-            conversation_history=history if history else None,
-            context_material=material,
-            subject=subject,
-            topic=topic,
-            escalation_context=context,
-        )
+        try:
+            result = await tutor_chat(
+                llm=llm,
+                student_message=user_input,
+                conversation_history=history if history else None,
+                context_material=material,
+                subject=subject,
+                topic=topic,
+                escalation_context=context,
+            )
+        except Exception as e:
+            print(f"\n  [ERROR] Gagal menghubungi AI: {e}")
+            print("  Coba lagi dalam beberapa detik...\n")
+            continue
 
         print(f"\nAI Tutor: {result['response']}\n")
 

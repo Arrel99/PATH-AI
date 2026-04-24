@@ -11,3 +11,14 @@ def get_base_system_prompt() -> str:
         "5. Jangan mengarang fakta — jika tidak yakin, katakan dengan jujur\n"
         "6. Setiap respons harus bermanfaat dan actionable\n"
     )
+
+
+def get_json_enforcement() -> str:
+    return (
+        "\n\nFORMAT OUTPUT:\n"
+        "Kamu HARUS mengembalikan output dalam format JSON yang valid.\n"
+        "Jangan tambahkan teks, penjelasan, atau markdown di luar JSON.\n"
+        "Pastikan JSON yang dihasilkan bisa di-parse tanpa error.\n"
+        "Jangan gunakan trailing comma.\n"
+        "Gunakan double quotes untuk semua key dan string value.\n"
+    )

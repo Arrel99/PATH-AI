@@ -1,0 +1,78 @@
+﻿docker : --progress is a 
+global compose flag, 
+better use `docker compose 
+--progress xx build ...
+At line:1 char:1
++ docker compose build 
+path-ai --no-cache 
+--progress=plain 2>&1 | 
+Out-F ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: (--p  
+  rogress is a...ss xx b   
+ uild ...:String) [], R    
+emoteException
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+Compose can now delegate builds to bake for better performance.
+ To do so, set COMPOSE_BAKE=true.
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [path-ai internal] load build definition from Dockerfile
+#1 transferring dockerfile: 885B 0.0s done
+#1 DONE 0.0s
+
+#2 [path-ai internal] load metadata for docker.io/library/python:3.11-slim
+#2 ERROR: failed to copy: httpReadSeeker: failed open: failed to do request: Get "https://docker-images-prod.6aa30f8b08e16409b46e0173d6de2f56.r2.cloudflarestorage.com/registry-v2/docker/registry/v2/blobs/sha256/d1/d1a45c0fb43d72e0c013ee97d460aa8f49f2c1bbd588b17a558cc6f7078b4276/data?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=f1baa2dd9b876aeb89efebbfc9e5d5f4%2F20260415%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260415T142810Z&X-Amz-Expires=1200&X-Amz-SignedHeaders=host&X-Amz-Signature=517d8f6ddb12e8f1f5e29900785ac92573bca3c26f3484ccaa0484677a9f0291": dialing docker-images-prod.6aa30f8b08e16409b46e0173d6de2f56.r2.cloudflarestorage.com:443 container via direct connection because static system has no HTTPS proxy: connecting to docker-images-prod.6aa30f8b08e16409b46e0173d6de2f56.r2.cloudflarestorage.com:443: dial tcp 172.64.66.1:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+------
+ > [path-ai internal] load metadata for docker.io/library/python:3.11-slim:
+------
+failed to solve: 
+python:3.11-slim: failed 
+to resolve source metadata 
+for docker.io/library/pytho
+n:3.11-slim: failed to 
+copy: httpReadSeeker: 
+failed open: failed to do 
+request: Get "https://docke
+r-images-prod.6aa30f8b08e16
+409b46e0173d6de2f56.r2.clou
+dflarestorage.com/registry-
+v2/docker/registry/v2/blobs
+/sha256/d1/d1a45c0fb43d72e0
+c013ee97d460aa8f49f2c1bbd58
+8b17a558cc6f7078b4276/data?
+X-Amz-Algorithm=AWS4-HMAC-S
+HA256&X-Amz-Credential=f1ba
+a2dd9b876aeb89efebbfc9e5d5f
+4%2F20260415%2Fauto%2Fs3%2F
+aws4_request&X-Amz-Date=202
+60415T142810Z&X-Amz-Expires
+=1200&X-Amz-SignedHeaders=h
+ost&X-Amz-Signature=517d8f6
+ddb12e8f1f5e29900785ac92573
+bca3c26f3484ccaa0484677a9f0
+291": dialing docker-images
+-prod.6aa30f8b08e16409b46e0
+173d6de2f56.r2.cloudflarest
+orage.com:443 container 
+via direct connection 
+because static system has 
+no HTTPS proxy: connecting 
+to docker-images-prod.6aa30
+f8b08e16409b46e0173d6de2f56
+.r2.cloudflarestorage.com:4
+43: dial tcp 
+172.64.66.1:443: 
+connectex: A connection 
+attempt failed because the 
+connected party did not 
+properly respond after a 
+period of time, or 
+established connection 
+failed because connected 
+host has failed to respond.

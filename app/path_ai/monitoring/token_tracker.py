@@ -20,15 +20,22 @@ class TokenTracker:
             completion_tokens=response.completion_tokens,
             total_tokens=response.total_tokens, model=response.model)
         self._history.append(usage)
+        self._total["prompt"] += usage.prompt_tokens
+        self._total["completion"] += usage.completion_tokens
         self._total["total"] += usage.total_tokens
         self._total["calls"] += 1
         return usage
+
+    def get_total(self) -> dict:
+        return dict(self._total)
 
 _tracker = TokenTracker()
 def get_tracker(): return _tracker
 
 def track_usage(response: LLMResponse, task: str = "unknown") -> dict:
+    from app.path_ai.monitoring.cost_tracker import get_cost_tracker
     u = _tracker.record(response, task)
+    get_cost_tracker().record(u)
     return {"task": u.task, "prompt_tokens": u.prompt_tokens,
             "completion_tokens": u.completion_tokens,
             "total_tokens": u.total_tokens, "model": u.model}
